@@ -12,10 +12,13 @@ if(isset($_POST["yearbook"])){
     $comment = trim($_POST['comment']);
 
     if (empty($name) || empty($comment)) {
-      // array_push($error, "Field must not be empty");
-      header('location:yearbook?action=yearbook');
+      array_push($error, "Field must not be empty");
+      
     }
   
+    if (!empty($error)) {
+      header('location:yearbook?action=yearbook');
+    }
    
     if (empty($error)) {
 
